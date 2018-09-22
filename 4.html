@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <input type="button" id="btn" value="кнопка">
+    <p id="result"></p>
+    <script>
+        let input = document.getElementById("input");
+        let btn = document.getElementById("btn");
+
+        btn.onclick = function() {
+            let bday = input.value.split('-');
+            let today = new Date();
+
+            let year = today.getFullYear();
+            let month = (Number(bday[1]) - 1);
+            let dayB = new Date(year, month, bday[2]);
+            let toBday = Math.round((dayB - today)/1000/3600/24);
+            document.getElementById('result').innerHTML =  + toBday + ' day';
+        };
+    </script>
+</body>
+</html>
