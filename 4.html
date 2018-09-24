@@ -20,6 +20,9 @@
             let month = (Number(bday[1]) - 1);
             let dayB = new Date(year, month, bday[2]);
             let toBday = Math.round((dayB - today)/1000/3600/24);
+            if (toBday < 0) {
+                toBday += 365;
+            }
             document.getElementById('result').innerHTML =  + toBday + ' day';
         };
     </script>
