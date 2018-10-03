@@ -9,29 +9,27 @@ export default function cartData(index) {
         },
         async: false
     }, "text");
-console.log(data);
+    let storeData;
     let test = false;
     let keyStore = localStorage.key(0);
-    let storeData = JSON.parse(localStorage.getItem(keyStore));
-    for (let i = 0; i < storeData.length; i++) {
-        console.log(i);
-        if (storeData[i] !== data[i]) {
-            test = true;
+    if (keyStore !== null) {
+        storeData = JSON.parse(localStorage.getItem(keyStore));
+        for (let i = 0; i < storeData.length; i++) {
+            if (storeData[i] !== data[i]) {
+                test = true;
+            }
         }
     }
-console.log(test);
     if (localStorage.key(0) === null || test === true){
         localStorage.clear();
         localStorage.setItem('id',JSON.stringify(data));
         result = data;
     } else {
         for(let i = 0; i < storeData.length ; i++){
-            console.log(i);
 
             result.push(storeData[i])
         }
     }
-    console.log(result);
 
     return result;
 }

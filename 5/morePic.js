@@ -12,7 +12,6 @@ export default function morePic() {
         divMore.appendChild(divNext);
 
         a = 'p' + clk + '.html';
-        console.log(a);
         $('#morePic' + clk).load(a + ' #pic', function( response, status) {
             if ( status == "error" ) {
                 let  endPic = document.createElement("IMG");
